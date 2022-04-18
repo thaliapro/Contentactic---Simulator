@@ -6,123 +6,508 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="navigation.js"></script>
+    <script src="simulator.js"></script>
 </head>
 <body>
-    <section class="sim-container sim-container-blue">
-        <div class="sim-row ">
-                <div class="sim-qst-content">
-                    <span class="sim-qst-content-question">
-                        Souhaitez-vous faire une création de site internet ou une refonte ? <span class="sim-star">*</span>
-                    </span>
-                    <div class="sim-qst-content-answers">
-                        <button class="sim-qst-content-answer">
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/creation-picto.png" />
-                            </span>
-                            <span class="sim-qst-content-answer-title">Création</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/creation-picto.png" />
-                            </span>
-                        </button>
-                        <button class="sim-qst-content-answer">
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/refonte-picto.png" />
-                            </span>
-                            <span class="sim-qst-content-answer-title">Refonte</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/refonte-picto.png" />
-                            </span>
-                        </button>
+
+    <div class="sim-container sim-navigation-container">
+        <div class="sim-row sim-navigation-row">
+        </div>
+    </div>
+
+    <div class="sim-slider">
+
+        <!-- Souhaitez-vous faire une création de site internet ou une refonte ? -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Souhaitez-vous faire une création de site internet ou une refonte ? <span class="sim-star">*</span>
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button data-value="Création" class="sim-qst-content-answer sim-answer-creation">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/creation-picto.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Création</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/creation-picto.png" />
+                                </span>
+                            </button>
+                            <button data-value="Refonte" class="sim-qst-content-answer sim-answer-creation">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/refonte-picto.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Refonte</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/refonte-picto.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
                     </div>
                 </div>
-                <div class="sim-qst-info"></div>
-        </div>
-    </section>
-    <section class="sim-container sim-container-blue">
-        <div class="sim-row ">
-                <div class="sim-qst-content">
-                    <span class="sim-qst-content-question">
-                        Pour toutes les questions où l’on répond par oui ou non / avec ou sans :
-                    </span>
-                    <div class="sim-qst-content-answers">
-                        <button class="sim-qst-content-answer">
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/picto-oui.png" />
-                            </span>
-                            <span class="sim-qst-content-answer-title">Oui</span>
-                        </button>
-                        <button class="sim-qst-content-answer">
-                            <span class="sim-qst-content-answer-title">Non</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/picto-non.png" />
-                            </span>
-                        </button>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="sim-qst-info"></div>
-        </div>
-    </section>
-    <section class="sim-container sim-container-blue">
-        <div class="sim-row ">
-                <div class="sim-qst-content">
-                    <span class="sim-qst-content-question">
-                        Combien de pages souhaitez-vous développer sur le site ?
-                    </span>
-                    <div class="sim-qst-content-range">
-                        <input type="range" min="1" max="20" value="1" class="sim-qst-content-range-input">
+            </div>
+        </section>
+
+        <!-- Combien de pages souhaitez-vous développer sur le site (Hors boutique) -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Combien de pages souhaitez-vous développer sur le site ?
+                        </span>
+                        <span class="sim-qst-content-range-value">
+                            1
+                        </span>
+                        <div class="sim-qst-content-range">
+                            <span class="sim-qst-content-range-minmax">1</span>
+                            <input type="range" min="1" max="20" value="1" class="sim-qst-content-range-input sim-answer-pages">
+                            <span class="sim-qst-content-range-minmax">20</span>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
                     </div>
                 </div>
-                <div class="sim-qst-info"></div>
-        </div>
-    </section>
-    <section class="sim-container sim-container-blue">
-        <div class="sim-row ">
-                <div class="sim-qst-content">
-                    <span class="sim-qst-content-question">
-                        Souhaitez-vous développer la fonctionnalité multilingue<br>
-                        - Si oui, cochez les langues souhaitées :
-                    </span>
-                    <div class="sim-qst-content-answers">
-                        <button class="sim-qst-content-answer sim-qst-content-answer-reversed">
-                            <span class="sim-qst-content-answer-title">Anglais</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/flags/royaume-uni.png" />
-                            </span>
-                        </button>
-                        <button class="sim-qst-content-answer sim-qst-content-answer-reversed">
-                            <span class="sim-qst-content-answer-title">Espagnol</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/flags/espagnol.png" />
-                            </span>
-                        </button>
-                        <button class="sim-qst-content-answer sim-qst-content-answer-reversed">
-                            <span class="sim-qst-content-answer-title">Italien</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/flags/italien.png" />
-                            </span>
-                        </button>
-                        <button class="sim-qst-content-answer sim-qst-content-answer-reversed">
-                            <span class="sim-qst-content-answer-title">Allemand</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/flags/allemand.png" />
-                            </span>
-                        </button>
-                        <button class="sim-qst-content-answer sim-qst-content-answer-reversed">
-                            <span class="sim-qst-content-answer-title">Pays-Bas</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/flags/pays-bas.png" />
-                            </span>
-                        </button>
-                        <button class="sim-qst-content-answer sim-qst-content-answer-reversed">
-                            <span class="sim-qst-content-answer-title">Portugais</span>
-                            <span class="sim-qst-content-answer-icon">
-                                <img src="./src/flags/portugais.png" />
-                            </span>
-                        </button>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="sim-qst-info"></div>
-        </div>
-    </section>
+            </div>
+        </section>
+        
+        <!-- Souhaitez-vous opter pour une offre de référencement pour création (analyse sémantique) / ou pour refonte (analyse sémantique + audit) -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Souhaitez-vous opter pour une offre de référencement pour création (analyse sémantique) / ou pour refonte (analyse sémantique + audit)
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button data-value="y" class="sim-qst-content-answer sim-answer-seo">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-oui.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Oui</span>
+                            </button>
+                            <button data-value="n" class="sim-qst-content-answer sim-answer-seo">
+                                <span class="sim-qst-content-answer-title">Non</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-non.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Souhaitez-vous ajouter un module de paiement et une boutique (fonctionnalité e-commerce) ? -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Souhaitez-vous ajouter un module de paiement et une boutique (fonctionnalité e-commerce) ?
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button data-value="y" class="sim-qst-content-answer sim-answer-shop">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-oui.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Oui</span>
+                            </button>
+                            <button data-value="n" class="sim-qst-content-answer sim-answer-shop">
+                                <span class="sim-qst-content-answer-title">Non</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-non.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avec ou sans espace client ?  -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Avec ou sans espace client ?
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button data-value="y" class="sim-qst-content-answer sim-answer-client">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-oui.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Oui</span>
+                            </button>
+                            <button data-value="n" class="sim-qst-content-answer sim-answer-client">
+                                <span class="sim-qst-content-answer-title">Non</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-non.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combien de pages catégories et fiche produit souhaitez-vous intégrer dans la boutique ? -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Combien de pages catégories souhaitez-vous intégrer dans la boutique ?
+                        </span>
+                        <span class="sim-qst-content-range-value">
+                            1
+                        </span>
+                        <div class="sim-qst-content-range">
+                            <span class="sim-qst-content-range-minmax">1</span>
+                            <input type="range" min="1" max="20" value="1" class="sim-answer-cat sim-qst-content-range-input">
+                            <span class="sim-qst-content-range-minmax">20</span>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Combien de fiches produits souhaitez-vous intégrer dans la boutique ?
+                        </span>
+                        <span class="sim-qst-content-range-value">
+                            1
+                        </span>
+                        <div class="sim-qst-content-range">
+                            <span class="sim-qst-content-range-minmax">1</span>
+                            <input type="range" min="1" max="20" value="1" class="sim-answer-prod sim-qst-content-range-input">
+                            <span class="sim-qst-content-range-minmax">20</span>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Souhaitez-vous nous confier la rédaction et l'optimisation de ces pages catégories et fiches produits ? -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Souhaitez-vous nous confier la rédaction et l'optimisation des pages catégories ?
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button data-value="y" class="sim-qst-content-answer sim-answer-cat-seo">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-oui.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Oui</span>
+                            </button>
+                            <button data-value="n" class="sim-qst-content-answer sim-answer-cat-seo">
+                                <span class="sim-qst-content-answer-title">Non</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-non.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Souhaitez-vous nous confier la rédaction et l'optimisation des fiches produits ?
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button data-value="y" class="sim-qst-content-answer sim-answer-prod-seo">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-oui.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Oui</span>
+                            </button>
+                            <button data-value="n" class="sim-qst-content-answer sim-answer-prod-seo">
+                                <span class="sim-qst-content-answer-title">Non</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-non.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Souhaitez-vous ajouter un blog sur le site ?  -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Souhaitez-vous ajouter un blog sur le site ?
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button data-value="y" class="sim-qst-content-answer sim-answer-blog">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-oui.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Oui</span>
+                            </button>
+                            <button data-value="n" class="sim-qst-content-answer sim-answer-blog">
+                                <span class="sim-qst-content-answer-title">Non</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-non.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Avez-vous besoin d'un logo et d'une charte graphique ? -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Avez-vous besoin d'un logo et d'une charte graphique ?
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button data-value="y" class="sim-qst-content-answer sim-answer-graphic">
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-oui.png" />
+                                </span>
+                                <span class="sim-qst-content-answer-title">Oui</span>
+                            </button>
+                            <button data-value="n" class="sim-qst-content-answer sim-answer-graphic">
+                                <span class="sim-qst-content-answer-title">Non</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/picto-non.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row ">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Souhaitez-vous votre site traduit en d'autres langues ?<br>
+                            - Si oui, cochez les langues souhaitées :
+                        </span>
+                        <div class="sim-qst-content-answers">
+                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                                <span class="sim-qst-content-answer-title">Anglais</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/flags/royaume-uni.png" />
+                                </span>
+                            </button>
+                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                                <span class="sim-qst-content-answer-title">Espagnol</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/flags/espagnol.png" />
+                                </span>
+                            </button>
+                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                                <span class="sim-qst-content-answer-title">Italien</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/flags/italien.png" />
+                                </span>
+                            </button>
+                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                                <span class="sim-qst-content-answer-title">Allemand</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/flags/allemand.png" />
+                                </span>
+                            </button>
+                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                                <span class="sim-qst-content-answer-title">Pays-Bas</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/flags/pays-bas.png" />
+                                </span>
+                            </button>
+                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                                <span class="sim-qst-content-answer-title">Portugais</span>
+                                <span class="sim-qst-content-answer-icon">
+                                    <img src="./src/flags/portugais.png" />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-submit">Combien ça coûte ?</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
