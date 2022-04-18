@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // PAGES
-    document.querySelector('.sim-answer-pages').addEventListener('change', () => {
+    document.querySelector('.sim-answer-pages').addEventListener('input', () => {
         // answers.setWork(item.getAttribute('data-value'))
         let value = this.event.target.value
         this.event.target.closest('.sim-qst-content').querySelector('.sim-qst-content-range-value').textContent = value
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // CAT
-    document.querySelector('.sim-answer-cat').addEventListener('change', () => {
+    document.querySelector('.sim-answer-cat').addEventListener('input', () => {
         // answers.setWork(item.getAttribute('data-value'))
         let value = this.event.target.value
         this.event.target.closest('.sim-qst-content').querySelector('.sim-qst-content-range-value').textContent = value
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // PROD
-    document.querySelector('.sim-answer-prod').addEventListener('change', () => {
+    document.querySelector('.sim-answer-prod').addEventListener('input', () => {
         // answers.setWork(item.getAttribute('data-value'))
         let value = this.event.target.value
         this.event.target.closest('.sim-qst-content').querySelector('.sim-qst-content-range-value').textContent = value
@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.sim-answer-lang').forEach(item => {
         item.addEventListener('click', () => {
             item.classList.contains('sim-qst-content-answer-active') ? item.classList.remove('sim-qst-content-answer-active') : item.classList.add('sim-qst-content-answer-active')
+            
         })
     })
 
