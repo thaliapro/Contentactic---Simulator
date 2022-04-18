@@ -1,0 +1,123 @@
+:root {
+    --sim-blue: #154D60;
+    --sim-yellow: #FA9F00;
+    --sim-light-blue: #3FAFD1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.sim-star {
+    color: var(--sim-yellow);
+}
+
+.sim-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sim-container-blue {
+    background: var(--sim-blue);
+}
+
+.sim-row {
+    max-width: 1380px;
+    width: 100%;
+    padding: 50px;
+}
+
+.sim-qst-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.sim-qst-content-question {
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 24px;
+    text-align: center;
+}
+
+.sim-qst-content-answers {
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    gap: 50px;
+}
+
+.sim-qst-content-answer {
+    position: relative;
+    background-color: white;
+    border: 0;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.sim-qst-content-answer-reversed {
+    flex-direction: column;
+}
+
+.sim-qst-content-answer:before {
+    position: absolute;
+    display: flex;
+    content: '';
+    background-color: var(--sim-light-blue);
+    height: 100%;
+    width: 90%;
+    padding: 20px 0;
+    z-index: -1;
+}
+
+.sim-qst-content-answer-title {
+    color: var(--sim-blue);
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/* RANGE */
+
+.sim-qst-content-range {
+    display: flex;
+    width: 100%;
+}
+
+.sim-qst-content-range-input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: var(--sim-light-blue);
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.sim-qst-content-range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: var(--sim-yellow);
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+.sim-qst-content-range-input::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: var(--sim-yellow);
+    cursor: pointer;
+    border-radius: 100%;
+}
