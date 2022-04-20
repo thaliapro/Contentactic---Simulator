@@ -195,7 +195,8 @@ body {
     margin-top: 70px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
 }
 
 .sim-qst-actions button{
@@ -239,4 +240,24 @@ body {
 
 .sim-navigation-dot-active{
     background-color: var(--sim-light-blue);
+}
+
+/* INPUTS */
+
+.sim-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+}
+
+.sim-input{
+    border: 4px solid var(--sim-grey);
+    font-family: 'Montserrat';
+    font-size: 20px;
+    padding: 10px 0;
+    gap: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: calc(100% - 20px - 8px);
 }

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script src="navigation.js"></script>
-    <script src="simulator.js"></script>
 </head>
 <body>
 
@@ -49,7 +48,6 @@
                         </div>
                     </div>
                     <div class="sim-qst-actions">
-                        <button class="sim-qst-action-before">< Précédent</button>
                         <button class="sim-qst-action-next">Suivant ></button>
                     </div>
                 </div>
@@ -451,43 +449,77 @@
                             - Si oui, cochez les langues souhaitées :
                         </span>
                         <div class="sim-qst-content-answers">
-                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                            <button data-value="english" class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-english">
                                 <span class="sim-qst-content-answer-title">Anglais</span>
                                 <span class="sim-qst-content-answer-icon">
                                     <img src="./src/flags/royaume-uni.png" />
                                 </span>
                             </button>
-                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                            <button data-value="spanish" class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-spanish">
                                 <span class="sim-qst-content-answer-title">Espagnol</span>
                                 <span class="sim-qst-content-answer-icon">
                                     <img src="./src/flags/espagnol.png" />
                                 </span>
                             </button>
-                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                            <button data-value="italian" class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-italian">
                                 <span class="sim-qst-content-answer-title">Italien</span>
                                 <span class="sim-qst-content-answer-icon">
                                     <img src="./src/flags/italien.png" />
                                 </span>
                             </button>
-                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                            <button data-value="deutsch" class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-deutsch">
                                 <span class="sim-qst-content-answer-title">Allemand</span>
                                 <span class="sim-qst-content-answer-icon">
                                     <img src="./src/flags/allemand.png" />
                                 </span>
                             </button>
-                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                            <button data-value="netherlands" class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-netherlands">
                                 <span class="sim-qst-content-answer-title">Pays-Bas</span>
                                 <span class="sim-qst-content-answer-icon">
                                     <img src="./src/flags/pays-bas.png" />
                                 </span>
                             </button>
-                            <button class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-lang">
+                            <button data-value="portuguese" class="sim-qst-content-answer sim-qst-content-answer-reversed sim-answer-portuguese">
                                 <span class="sim-qst-content-answer-title">Portugais</span>
                                 <span class="sim-qst-content-answer-icon">
                                     <img src="./src/flags/portugais.png" />
                                 </span>
                             </button>
                         </div>
+                    </div>
+                    <div class="sim-qst-actions">
+                        <button class="sim-qst-action-before">< Précédent</button>
+                        <button class="sim-qst-action-next">Suivant ></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sim-container sim-container-info">
+                <div class="sim-row">
+                    <div class="sim-info">
+                        <div class="sim-info-icon">
+                            <img src="./src/answer.png">
+                        </div>
+                        <div class="sim-info-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit sint molestias totam harum qui culpa itaque magni esse nostrum. Illo autem officiis quisquam deleniti, earum, fuga vero, a aliquid sunt rem nulla incidunt et ipsa dolores amet voluptatibus suscipit hic! Eveniet odio a voluptates dolor quo, nemo quas recusandae reiciendis dignissimos vero sint, ipsa corporis qui alias illum velit ut. Labore, quidem laboriosam similique voluptatem odio praesentium soluta voluptates voluptatibus totam temporibus quibusdam modi at obcaecati architecto itaque a, asperiores harum. Alias distinctio laborum, modi architecto illum, nostrum nesciunt eveniet velit excepturi assumenda, laboriosam repellendus harum. Ducimus itaque aspernatur amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Formulaire avant réponse -->
+        <section class="sim-slide">
+            <div class="sim-container sim-container-blue">
+                <div class="sim-row">
+                    <div class="sim-qst-content">
+                        <span class="sim-qst-content-question">
+                            Quelques informations à propos de vous...
+                        </span>
+                        <span class="sim-form">
+                            <input type="text" placeholder="Nom" class="sim-input"><br>
+                            <input type="text" placeholder="Société" class="sim-input"><br>
+                            <input type="text" placeholder="E-mail" class="sim-input">
+                        </span>
                     </div>
                     <div class="sim-qst-actions">
                         <button class="sim-qst-action-before">< Précédent</button>
@@ -508,6 +540,7 @@
                 </div>
             </div>
         </section>
+
     </div>
 </body>
 </html>
