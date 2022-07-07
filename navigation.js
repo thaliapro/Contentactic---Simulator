@@ -15,11 +15,18 @@ class simNavigation {
     }
 
     onNavigationForward(answers) {
-        
-        if(answers.shop == false && this.navigation == 3) {
-            this.navigation = 7
+
+        if(
+            (answers.work != null && this.navigation == 0) ||
+            (answers.seo != null && this.navigation == 2)
+        ) {
+            if(answers.shop == false && this.navigation == 3) {
+                this.navigation = 7
+            } else {
+                this.navigation++
+            }
         } else {
-            this.navigation++
+            alert('Veuillez renseigner les informations demandée ' + this.navigation)
         }
 
     }
