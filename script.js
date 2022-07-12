@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => { 
 
     let answers = new sim_Simulator()
+    let lastSlide = 1
 
     // CREATION OU REFONTE
     sim_setChoice('.sim-answer-creation', (data) => answers.setWork(data))
     // PAGES
-    sim_setRange('.sim-answer-pages', () => answers.setPage())
+    sim_setRange('.sim-answer-pages', (data) => answers.setPage(data))
     // SEO
     sim_setChoice('.sim-answer-seo', (data) => answers.setSeo(data))
     // SHOP
@@ -13,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // CLIENT
     sim_setChoice('.sim-answer-client', (data) => answers.setClientBoard(data))
     // CAT
-    sim_setRange('.sim-answer-cat', () => answers.setCatPages())
+    sim_setRange('.sim-answer-cat', (data) => answers.setCatPages(data))
     // PROD
-    sim_setRange('.sim-answer-prod', () => answers.setProdPage())
+    sim_setRange('.sim-answer-prod', (data) => answers.setProdPage(data))
     // CAT SEO
     sim_setChoice('.sim-answer-cat-seo', (data) => answers.setWriteCatPages(data))
     // PROD SEO
@@ -39,13 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // BOUTON BEFORE
     document.querySelectorAll(".sim-qst-action-before").forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', element => {
             if(nav.navigation > 0) {
                 nav.onNavigationBack(answers)
                 document.querySelectorAll('.sim-slide').forEach(slide => {
                     slide.style.transform = `translateX(-${nav.navigation}00%)`
                     sim_getDots(nav)
                 })
+                document.querySelector(`#sim-slide-${lastSlide}`).style.height = 0
+                lastSlide = nav.navigation+1
+                document.querySelector(`#sim-slide-${lastSlide}`).style.height = 'inherit'
             }
         })
     })
@@ -59,13 +63,43 @@ document.addEventListener("DOMContentLoaded", () => {
                     slide.style.transform = `translateX(-${nav.navigation}00%)`
                     sim_getDots(nav)
                 })
+                document.querySelector(`#sim-slide-${lastSlide}`).style.height = 0
+                lastSlide = nav.navigation+1
+                document.querySelector(`#sim-slide-${lastSlide}`).style.height = 'inherit'
             }
         })
     })
 
     // BOUTON SUBMIT
     document.querySelector('.sim-qst-action-submit').addEventListener('click', () => {
-        console.log('Formulaire soumis avec succès')
+
+        let name = document.querySelector('#sim-form-name').value
+        let society = document.querySelector('#sim-form-society').value
+        let email = document.querySelector('#sim-form-email').value
+
+        if(name != '' && email != '') {
+            let total = answers.getContentMakerEstimation() + answers.getDesignerEstimation() + answers.getDevelopperEstimation()
+            let totalMin = 100*Math.floor((total*0.9)/100);
+            let totalMax = 100*Math.floor((total*1.1)/100);
+
+
+
+            document.querySelector('#sim-estimation').textContent = `${totalMin} et ${totalMax} €`
+
+            if(nav.navigation >= 0 && nav.navigation <= nav.slides) {
+                nav.onNavigationForward(answers)
+                document.querySelectorAll('.sim-slide').forEach(slide => {
+                    slide.style.transform = `translateX(-${nav.navigation}00%)`
+                    sim_getDots(nav)
+                })
+            }
+
+        } else {
+            alert('Veuillez compléter tous les champs !')
+        }
+
+
+
     })
 });
 
@@ -129,7 +163,7 @@ class sim_Simulator {
         this.writeCatPages = null // Rédaction des pages catégories
         this.writeProdPage = null // Rédaction des pages produits
         this.blog = null // Blog
-        this.graphic = false // Charte Graphique
+        this.graphic = null // Charte Graphique
         this.english = false
         this.spanish = false
         this.italian = false
@@ -204,6 +238,86 @@ class sim_Simulator {
 
     togglePortuguese() {
         this.portuguese = !this.portuguese
+    }
+
+    getDevelopperEstimation() {
+
+        let shopPrice = this.shop ? 320 : 0
+        let clientPagePrice = this.clientBoard ? 320 : 0
+
+        let translationBasePrice = (this.english || this.spanish || this.italian || this.deutsch || this.netherlands || this.portuguese) ? 100 : 0
+
+        let categoryPages = this.writeCatPages ? this.catPages : 0
+        let productPages = this.writeProdPage ? this.prodPage : 0
+        let blogPages = this.blog ? 1 : 0
+        let translationPages = this.english + this.spanish + this.italian + this.deutsch + this.netherlands + this.portuguese + 1
+        let pageNumber = (Number(this.page) + Number(productPages) + Number(categoryPages) + Number(blogPages)) * translationPages
+
+        let pagePrice = 10 * pageNumber
+        let sectionPrice = 0
+
+        if(pageNumber == 1) {
+            sectionPrice = 270
+        } else if (pageNumber < 4 && pageNumber > 1) {
+            sectionPrice = 360
+        } else if (pageNumber <= 6) {
+            sectionPrice = 540
+        } else if (pageNumber <= 10) {
+            sectionPrice = 780
+        }  else if (pageNumber <= 20) {
+            sectionPrice = 1080
+        } else {
+            sectionPrice = 1380
+        }
+
+        return 500 + pagePrice + shopPrice + clientPagePrice + sectionPrice + translationBasePrice
+    }
+
+    getDesignerEstimation() {
+        let logoPrice = this.graphic ? 950 : 0
+
+        let eShop = this.shop ? 50 : 0
+        let client = this.clientBoard ? 30 : 0
+
+        let catPage = Number(this.catPages) > 0  ? 1 : 0
+        let prodPage = Number(this.prodPage) > 0 ? 1 : 0
+        let blogPage = this.blog ? 1 : 0
+        let eShopPage = this.shop ? 1 : 0
+        let pagePrice = ((Number(this.page) + catPage + prodPage + blogPage + eShopPage) - 1) * 90
+
+        return eShop + client + pagePrice + logoPrice + 460
+
+    }
+
+    getContentMakerEstimation() {
+        
+        let englishPrice = this.english ? 150 : 0
+        let spanishPrice = this.spanish ? 150 : 0
+        let italianPrice = this.italian ? 150 : 0
+        let deutschPrice = this.deutsch ? 150 : 0
+        let netherlandsPrice = this.netherlands ? 150 : 0
+        let portuguesePrice = this.portuguese ? 150 : 0
+        let langageCount = 1 + this.english + this.spanish + this.italian + this.deutsch + this.netherlands + this.portuguese
+
+        let categoryPrice = this.writeCatPages ? this.catPages*langageCount*200 : 0
+        let productPrice = this.writeProdPage ? this.prodPage*langageCount*150 : 0
+
+        let pagePrice = (langageCount == 1 && Number(this.page) == 1 && this.catPages == 0 && this.prodPage == 0) ? Number(this.page)*langageCount : 390
+
+        let semantiquePrice = 0
+
+        if (this.seo) {
+            semantiquePrice += (langageCount-1)*800
+
+            if (this.work) {
+                semantiquePrice += 800
+            } else  {
+                semantiquePrice += 1500
+            } 
+        }
+
+        return  englishPrice + spanishPrice + italianPrice + deutschPrice + netherlandsPrice + portuguesePrice + categoryPrice + productPrice + pagePrice + semantiquePrice
+
     }
 
 }
