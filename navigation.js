@@ -41,3 +41,5 @@ class simNavigation {
         this.navigation = key
     }
 }
+
+console.log('coucou')
